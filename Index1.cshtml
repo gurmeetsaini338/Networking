@@ -1,0 +1,35 @@
+﻿
+<h1>hallo</h1>
+@model IEnumerable<Network.Db_Context.Tblimage>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="text-center">
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                @foreach (var d in Model)
+                {
+
+                    <tr class="text-center">
+
+                        <td>@d.Id</td>
+                        <td>@d.Title</td>
+                        <td>
+                             <img src="~/@d.Image" height="100px;" width="100px;" alt="" />
+                        </td>
+
+                    </tr>
+
+                }
+            </table>
+        </div>
+    </div>
+
+</div>

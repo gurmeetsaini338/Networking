@@ -1,0 +1,355 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Network.Models.UserModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @*<title>@ViewData["Title"] - Network</title>*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3 navbar-fixed-top margin-left:14 ">
+        <div class="container">
+            @*<a class="navbar-brand" asp-area="" asp-controller="Network" asp-action="Index">Network</a>*@
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between col-12">
+                <ul class="navbar-nav flex-grow-1" style="margin-left:-60px;">
+                    <li class="nav-item text-dark text-white">
+                        <a class="btn btn-primary text-white" style="margin-left: -51px;">GP_Networking:-</a>
+
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-collapse">
+                    <li class="text-white">
+                        <h4>Registration Form New Users</h4>
+
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right" style="margin-right:-100px;">
+                    <li><a asp-controller="Network" asp-action="Login" class="btn btn-success fa fa-fw fa-user">Login</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="text-uppercase text-center">Registration Form</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Network" asp-action="Registration" method="post" class="border-dark" enctype="multipart/form-data">
+                        @*<input type="hidden" asp-for="Id" />*@
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+
+                                <label class="text-dark">Name</label>
+                                <input placeholder="Enter Your Name" class="form-control" asp-for="Name" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+
+                                <label>UserName</label>
+                                <input placeholder="Enter Your UserName" class="form-control" asp-for="UserName" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+
+                                <label asp-for="EmailId">EmailId</label>
+                                <input placeholder="Enter EmailId" class="form-control" asp-for="EmailId" />
+                                <span asp-validation-for="EmailId" class="text-danger"></span>
+                                <div class="text-danger">@ViewBag.Message</div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+
+                                <label>Password</label>
+                                <input placeholder="Enter Password" class="form-control" asp-for="Password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+
+                                <label>AddharNo</label>
+                                <input placeholder="Enter 12 Digits AddharNo" class="form-control" asp-for="AddharNo" />
+                                <span asp-validation-for="AddharNo" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+
+                                <label>CreateRefer</label>
+                                <input placeholder="first(4)CherName And Last(4)AddharNum" class="form-control" asp-for="CreateRefer" />
+                                <span asp-validation-for="CreateRefer" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group col-md-4">
+
+                                <label>PhoneNo</label>
+                                <input placeholder="Enter 10 Digits PhoneNo" class="form-control" asp-for="PhoneNo" />
+                                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+
+                                <label>Country</label>
+                                <input placeholder="Enter the Country" class="form-control" asp-for="Country" />
+                                <span asp-validation-for="Country" class="text-danger"></span>
+                                 @*<select class="form-control" id="Country">
+                                 <option>-----Select Country--------</option>
+                                 </select>*@
+
+                            </div>
+                            <div class="form-group col-md-4">
+
+                                <label>State</label>
+                                <input placeholder="Enter the State" class="form-control" asp-for="State" />
+                                <span asp-validation-for="State" class="text-danger"></span>
+
+
+                            </div>
+                            <div class="form-group col-md-4">
+
+                                <label>City</label>
+                                <input placeholder="Enter the City" class="form-control" asp-for="City" />
+                                <span asp-validation-for="City" class="text-danger"></span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-4">
+
+                                <label>Gender:-</label><br />
+                                <input type="radio" name="Gender" value="male" asp-for="Gender"> Male
+                                <input type="radio" name="Gender" value="female" asp-for="Gender"> Female
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+
+                                <label>Amount</label>
+                                <input placeholder="EnterAmount 1000" class="form-control" asp-for="Amount" />
+                                <span asp-validation-for="Amount" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+
+                                <label>AdminReferCode</label>
+                                <input placeholder="Enter AdminReferCode" class="form-control" asp-for="AdminReferCode" />
+                                <span asp-validation-for="AdminReferCode" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+
+                                <label>Title</label>
+                                <input placeholder="Enter ImagTitle" class="form-control" asp-for="Title" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+
+                                <label>ImageData</label>
+                                <input type="file" placeholder="Enter FilePath" class="form-control" asp-for="ImageData" />
+                                <span asp-validation-for="ImageData" class="text-danger"></span>
+
+                            </div>
+
+                        </div>
+
+                        <button value="submit" class="btn btn-sm btn-success text-uppercase rounded-0" onclick="return confirm('Are You Sure Want to Register Your Details?')">Submit</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @*@RenderBody()*@
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2022 - Network - <a asp-area="" asp-controller="Network" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/table.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/Cascade.js"></script>
+    @*@await RenderSectionAsync("Scripts", required: false)*@
+</body>
+
+<footer class="text-center text-lg-start text-white"
+        style="background-color: #1c2331">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-between p-4"
+             style="background-color: #6351ce">
+        <!-- Left -->
+        <div class="me-5">
+            <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+        <!-- Right -->
+        <div>
+            <a href="" class="text-white me-4">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="text-white me-4">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="text-white me-4">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="text-white me-4">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="text-white me-4">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="text-white me-4">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+    <!-- Section: Links  -->
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold">Company name</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p>
+                        Here you can use rows and columns to organize your footer
+                        content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit.
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold">Products</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p>
+                        <a href="#!" class="text-white">MDBootstrap</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-white">MDWordPress</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-white">BrandFlow</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-white">Bootstrap Angular</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold">Useful links</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p>
+                        <a href="#!" class="text-white">Your Account</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-white">Become an Affiliate</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-white">Shipping Rates</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-white">Help</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold">Contact</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 60px; background-color: #7c4dff; height: 2px" />
+                    <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                    <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+    <!-- Copyright -->
+    <div class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+</html>
+
+
+
+
+
+
+
+
